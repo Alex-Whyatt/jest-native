@@ -1,4 +1,4 @@
-import { equals, isNil, not } from 'ramda';
+import { equals } from 'ramda';
 import { matcherHint, stringify, printExpected } from 'jest-matcher-utils';
 import { checkReactElement, getMessage } from './utils';
 
@@ -18,12 +18,13 @@ export function toHaveProp(element, name, expectedValue) {
   const prop = element.props[name];
 
   const isDefined = expectedValue !== undefined;
-  const hasProp = not(isNil(prop));
+  const hasProp = name in element.props;
 
   return {
     pass: isDefined ? hasProp && equals(prop, expectedValue) : hasProp,
     message: () => {
       const to = this.isNot ? 'not to' : 'to';
+
       const receivedProp = hasProp ? printAttribute(name, prop) : null;
       const matcher = matcherHint(
         `${this.isNot ? '.not' : ''}.toHaveProp`,

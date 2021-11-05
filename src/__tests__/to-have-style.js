@@ -84,7 +84,7 @@ describe('.toHaveStyle', () => {
 
     const container = getByTestId('container');
     expect(() =>
-      expect(container).toHaveStyle({ transform: [{ scale: 1 }] }),
+      expect(container).toHaveStyle({ transform: [{ scale: 1 }], backgroundColor: 'blue' }),
     ).toThrowErrorMatchingSnapshot();
   });
 });

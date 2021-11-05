@@ -19,6 +19,7 @@ exports[`.toHaveStyle handles transform when transform undefined 1`] = `
 
 <green>- Expected</>
 
+<dim>  backgroundColor: blue;</>
 <green>- transform: [</>
 <green>-   {</>
 <green>-     \\"scale\\": 1</>
